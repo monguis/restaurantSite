@@ -4,22 +4,24 @@ const Carousel = props => {
 
     const [index, setIndex] = useState(0)
 
-    const moveForward = () => {
+    const moveRight = () => {
         console.log(index)
         if (index < props.children.length - 1)
             setIndex(index + 1)
     }
 
-    const moveBackward = () => {
+    const moveLeft = () => {
         if (index > 0)
             setIndex(index - 1)
     }
 
-    return (<>
+    return (
         <div className="slider"
             style={{
-                width: "100%",
-                height: "100vh",
+                overflow: "hidden",
+                position: "relative",
+                maxWidth: "100%",
+                maxHeight: "100%",
                 boxSizing: "border-box",
                 margin: 0, padding: 0,
                 display: "flex",
@@ -32,22 +34,56 @@ const Carousel = props => {
                         style={{
                             border: "1px solid blue",
                             minWidth: "100%",
-                            height: "80vh",
+                            minHeight: "100%",
                             transform: `translateX(${index * -100}%)`,
                             transition: "0.5s"
                         }}>
-                            
+
                         {item}
 
                     </div>
                 })
             }
 
+            <button
+                className="sliderButton"
+                style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    position: "absolute",
+                    right: 0,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "5%",
+                    height: "100%"
+                }}
+                onClick={moveRight}>
+                +
+            </button>
+
+            <button
+                className="sliderButton"
+                onClick={moveLeft}
+                style={{
+                    backgroundColor: "transparent",
+                    border:"none",
+                    left: 0,
+                    position: "absolute",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "5%",
+                    height: "100%"
+                }}>
+                -
+                </button>
+
+
+
         </div >
-        <button onClick={moveForward}>+</button>
-        <button onClick={moveBackward}>-</button>
-    </>
+
+
     )
 }
 
 export default Carousel;
+
