@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SlideElement from "../SlideElement"
-import  "./CarouselStyles.css"
+import  "./CarouselFunctionalStyle.css";
+import  "./CarouselDesignStyle.css";
 
 const Carousel = props => {
 
@@ -18,23 +19,11 @@ const Carousel = props => {
     }
 
     return (
-        <div className="slider"
-            style={{
-                overflow: "hidden",
-                position: "relative",
-                maxWidth: "100%",
-                maxHeight: "100%",
-                boxSizing: "border-box",
-                margin: 0, padding: 0,
-                display: "flex",
-                alignItems: "center"
-            }}>
+        <div className="carouselSlider">
             {
-                
                 props.children.map(slide => {
                     return <SlideElement elementController={index} elementToDisplay={slide}/>
                 })
-                
             }
 
             <button

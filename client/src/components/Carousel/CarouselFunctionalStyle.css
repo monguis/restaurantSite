@@ -1,0 +1,31 @@
+.carouselSlider {
+    overflow: hidden;
+    position: relative;
+    max-width: 70%;
+    max-height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.sliderButton {
+    background-color: transparent;
+    outline: none !important;
+    border: none !important;
+    position: absolute;
+    top: 50%;
+    width: 20%;
+    height: 100%;
+    transform: translateY(-50%) !important;
+    transition: 0.3s
+}
+
+#moveRightSliderButton {
+    right: 0;
+}
+
+#moveLeftSliderButton {
+    left: 0;
+}
