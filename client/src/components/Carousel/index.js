@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SlideElement from "../SlideElement"
+import  "./CarouselStyles.css"
 
 const Carousel = props => {
 
@@ -28,52 +30,24 @@ const Carousel = props => {
                 alignItems: "center"
             }}>
             {
-                props.children.map(item => {
-                    return <div
-                        className="slide"
-                        style={{
-                            border: "1px solid blue",
-                            minWidth: "100%",
-                            minHeight: "100%",
-                            transform: `translateX(${index * -100}%)`,
-                            transition: "0.5s"
-                        }}>
-
-                        {item}
-
-                    </div>
+                
+                props.children.map(slide => {
+                    return <SlideElement elementController={index} elementToDisplay={slide}/>
                 })
+                
             }
 
             <button
                 className="sliderButton"
-                style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    position: "absolute",
-                    right: 0,
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: "5%",
-                    height: "100%"
-                }}
+                id="moveRightSliderButton"
                 onClick={moveRight}>
                 +
             </button>
 
             <button
                 className="sliderButton"
-                onClick={moveLeft}
-                style={{
-                    backgroundColor: "transparent",
-                    border:"none",
-                    left: 0,
-                    position: "absolute",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    width: "5%",
-                    height: "100%"
-                }}>
+                id="moveLeftSliderButton"
+                onClick={moveLeft}>
                 -
                 </button>
 

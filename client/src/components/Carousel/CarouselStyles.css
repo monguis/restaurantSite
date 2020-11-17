@@ -1,0 +1,27 @@
+.sliderButton {
+    background-color: transparent;
+    outline: none !important;
+    border: none !important;
+    position: absolute;
+    top: 50%;
+    width: 20%;
+    height: 100%;
+    transform: translateY(-50%);
+    transition:0.3s
+}
+
+#moveRightSliderButton {
+    right: 0;
+}
+
+#moveRightSliderButton:hover {
+    box-shadow: inset -4vw 0 6vw -5vw  white;
+}
+
+#moveLeftSliderButton {
+    left: 0;
+}
+
+#moveLeftSliderButton:hover{
+    box-shadow: inset 4vw 0 6vw -5vw  white;
+}
