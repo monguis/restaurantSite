@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./NavBarDesignStyle.css";
+import { useViewportContext } from "../ViewportContext/"
+
 
 const NavBar = () => {
 
     const [mobileMenuButtonState, setMobileMenuButton] = useState(false);
+
+console.log(useViewportContext())
 
     const handleMenuButtonCLick = () => {
         setMobileMenuButton(!mobileMenuButtonState);
@@ -11,7 +15,7 @@ const NavBar = () => {
 
     return (
         <nav className="NavBar">
-
+            <div>{useViewportContext[0]}</div>
             <div className="MobileMenuButton" onClick={handleMenuButtonCLick}>
                 {mobileMenuButtonState ? <i class="fas fa-chevron-left"></i> : <i class="fas fa-bars"></i>}
             </div>
