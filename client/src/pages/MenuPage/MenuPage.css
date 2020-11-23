@@ -1,0 +1,49 @@
+#menuContainer {
+    position: relative;
+    display: flex;
+}
+
+#sectionSidebarWrapper{
+    position: relative;
+    width: 30%;
+    max-width: 600px;
+}
+
+
+#sectionSidebar {
+    position: sticky;
+    top:0;
+    padding: 3rem;
+}
+
+.sidebarElement {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    font-size: 2rem;
+    padding: 1rem 0;
+    border: red 1px dotted;
+}
+
+#sectionMenuDisplay {
+    padding: 3rem;
+    width: 70%;
+}
+
+.sectionMenuGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 12%;
+    grid-auto-rows: minmax(100px, auto);
+    overflow: hidden;
+}
+
+.sectionMenuGridElement {
+    position: relative;
+    border: blue 2px solid;
+}
+
+.sectionTitle {
+    text-align: center;
+}
