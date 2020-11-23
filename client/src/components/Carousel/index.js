@@ -1,28 +1,33 @@
-import React, { useState } from "react";
-import SlideElement from "../SlideElement"
-import  "./CarouselFunctionalStyle.css";
-import  "./CarouselDesignStyle.css";
+import React, { useState, useEffect } from "react";
+import SlideElement from "../SlideElement";
+import "./CarouselFunctionalStyle.css";
+import { startInterval as sliderInterval, stopInterval as stopSliderInterval } from "../intervals/";
 
 const Carousel = props => {
 
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(0);
+    const lastIndexOfChildrenArray = props.children.length - 1;
+
+
+    useEffect(() => {
+        sliderInterval(moveRight, 6000);
+        return (() => stopSliderInterval())
+    }, [])
+
 
     const moveRight = () => {
-        console.log(index)
-        if (index < props.children.length - 1)
-            setIndex(index + 1)
+        setIndex(index => index < lastIndexOfChildrenArray ? index + 1 : 0);
     }
 
     const moveLeft = () => {
-        if (index > 0)
-            setIndex(index - 1)
+        setIndex(index => index > 0 ? index - 1 : lastIndexOfChildrenArray);
     }
 
     return (
-        <div className="carouselSlider">
+        <div className="carouselSlider" onClick={stopSliderInterval}>
             {
                 props.children.map(slide => {
-                    return <SlideElement elementController={index} elementToDisplay={slide}/>
+                    return <SlideElement elementController={index} elementToDisplay={slide} />
                 })
             }
 
@@ -30,15 +35,15 @@ const Carousel = props => {
                 className="sliderButton"
                 id="moveRightSliderButton"
                 onClick={moveRight}>
-                +
+                <i class="fas fa-chevron-right"></i>
             </button>
 
             <button
                 className="sliderButton"
                 id="moveLeftSliderButton"
                 onClick={moveLeft}>
-                -
-                </button>
+                <i class="fas fa-chevron-left"></i>
+            </button>
 
 
 
