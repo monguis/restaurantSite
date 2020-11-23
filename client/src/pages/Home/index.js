@@ -1,15 +1,18 @@
 import React from "react";
 import Carousel from "../../components/Carousel/";
 import NavBar from "../../components/NavBar";
-import {ViewportProvider} from "../../components/ViewportContext";
+import { ViewportProvider } from "../../components/ViewportContext";
+import MenuPage from "../MenuPage"
 
 
 const Home = () => {
 
     return (<div>
-            <ViewportProvider>
+        <ViewportProvider>
             <NavBar />
-            <Carousel>
+            <MenuPage />
+
+            {/* <Carousel>
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
@@ -25,8 +28,8 @@ const Home = () => {
                 </h2>
             <footer>
                 footer
-            </footer>
-            </ViewportProvider>
+            </footer> */}
+        </ViewportProvider>
     </div>)
 }
 
