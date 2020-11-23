@@ -22,10 +22,29 @@
     transition: 0.3s;
     font-size: 3rem;
     color: whitesmoke;
-    text-shadow: -1px 1px 0 #000, 
-                1px 1px 0 #000, 
-                1px -1px 0 #000, 
-                -1px -1px 0 #000;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+.circleButtonList {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    text-align: center;
+    background-color: black;
+    padding: 0.2rem;
+    border-radius: 15px;
+    transform: translateX(-50%);
+    display: flex;
+    list-style: none;
+}
+
+.circleButton {
+    background-color: transparent;
+    outline: none !important;
+    border: none !important;
+    color: white;
+    /* text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000; */
+    transition: 0.5s all;
 }
 
 #moveRightSliderButton {

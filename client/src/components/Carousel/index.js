@@ -3,10 +3,10 @@ import SlideElement from "../SlideElement";
 import "./CarouselFunctionalStyle.css";
 import { startInterval as sliderInterval, stopInterval as stopSliderInterval } from "../intervals/";
 
-const Carousel = props => {
+const Carousel = ({ children }) => {
 
     const [index, setIndex] = useState(0);
-    const lastIndexOfChildrenArray = props.children.length - 1;
+    const lastIndexOfChildrenArray = children.length - 1;
 
 
     useEffect(() => {
@@ -23,10 +23,14 @@ const Carousel = props => {
         setIndex(index => index > 0 ? index - 1 : lastIndexOfChildrenArray);
     }
 
+    const setIndexTo = (newIndex) => {
+        setIndex(newIndex);
+    }
+
     return (
         <div className="carouselSlider" onClick={stopSliderInterval}>
             {
-                props.children.map(slide => {
+                children.map(slide => {
                     return <SlideElement elementController={index} elementToDisplay={slide} />
                 })
             }
@@ -46,7 +50,14 @@ const Carousel = props => {
             </button>
 
 
-
+            <ul className="circleButtonList">
+                {children.map((_, childIndex) =>
+                    <li>
+                        <button className="circleButton" onClick={() => setIndexTo(childIndex)}>
+                            {childIndex !== index ? <i class="fas fa-circle"></i> : <i class="fas fa-dot-circle"></i>}
+                        </button>
+                    </li>)}
+            </ul>
         </div >
 
 
