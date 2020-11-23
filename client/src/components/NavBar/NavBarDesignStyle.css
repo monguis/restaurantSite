@@ -1,0 +1,49 @@
+.NavBar {
+    height: 80px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.navBar-logo {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.navBarItemList {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.navBarButton {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navBarButton:hover {
+    background-color: #6d78f7;
+    border-radius: 4px;
+}
+
+.fa-bars {
+    color: #fff;
+}
+
+.fa-chevron-left{
+    color:#fff;
+}
+
+.NavBarMobileButtons {
+    display: none
+}
