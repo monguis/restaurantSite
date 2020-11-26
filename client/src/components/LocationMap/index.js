@@ -1,25 +1,48 @@
 import React from "react"
-import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
+import {
+    GoogleMap,
+    Marker,
+    useLoadScript
+} from "@react-google-maps/api";
 
+import mapStyle from "./mapStyle.js"
+const libraries = ["places"];
 
 const LocationMap = props => {
 
-    return <GoogleMap
-        defaultZoom={15}
-        defaultCenter={{ lat: 39.708794845449816, lng: -104.92424610104125 }}
-    />
-}
+    console.log(useLoadScript)
+    const { isLoaded, loadError } = useLoadScript({
+        googleMapsApiKey: ,
+        libraries,
+    });
+    const position = { lat: 39.708794845449816, lng: -104.92424610104125 }
 
-const WrappedMap = withScriptjs(withGoogleMap(LocationMap));
+    if (loadError) return "no worked"
+    if (!isLoaded) return "loading"
 
-export default () => {
-    return <div style={{ width: "100vw", height: "100vh" }}>
-        <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3&key=`}
-            loadingElement={<div style={{ height: "100%" }} />}
-            containerElement={<div style={{ height: "100%" }} />}
-            mapElement={<div style={{ height: "100%" }} />} >
-            <LocationMap />
-        </WrappedMap>
-    </div>
+    return (
+        <div className="LocationMap" style={{ height: "50rem" }}>
+            <GoogleMap
+                mapContainerStyle={{
+                    height: '100%',
+                    width: "100%"
+                }}
+                zoom={15}
+                center={position}
+                options={{
+                    disableDefaultUI: true,
+                    styles: mapStyle
+                }}
+            >
+                {/* 5307 Leetsdale Dr Denver, CO 80246 */}
+
+                <Marker
+                    position={ position }
+                >
+                </Marker>
+            </GoogleMap>
+        </div>
+    )
 };
 
+export default LocationMap;
