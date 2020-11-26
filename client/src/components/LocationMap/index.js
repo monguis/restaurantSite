@@ -12,7 +12,7 @@ const LocationMap = props => {
 
     console.log(useLoadScript)
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: ,
+        googleMapsApiKey: "nokeyfornow" ,
         libraries,
     });
     const position = { lat: 39.708794845449816, lng: -104.92424610104125 }

@@ -7,22 +7,22 @@ const NavBar = () => {
 
     const [mobileMenuButtonState, setMobileMenuButton] = useState(false);
 
-console.log(useViewportContext())
-
     const handleMenuButtonCLick = () => {
-        setMobileMenuButton(!mobileMenuButtonState);
+        setMobileMenuButton(mobileMenuButtonState=> !mobileMenuButtonState);
     }
 
+    const { width, height } = useViewportContext()
+
     return (
-        <nav className="NavBar">
-            <div>{useViewportContext[0]}</div>
+        <nav className="NavBarElements">
+            <div className="companyLogo">company logo</div>
             <div className="MobileMenuButton" onClick={handleMenuButtonCLick}>
                 {mobileMenuButtonState ? <i class="fas fa-chevron-left"></i> : <i class="fas fa-bars"></i>}
             </div>
 
-            <ul className="navBarItemList">
+            <ul className={mobileMenuButtonState ? 'navBarLinkList active' : 'navBarLinkList'}>
                 {["Home", "Order now", "Menu", "Contact us", "About"].map(item => {
-                    return (<li className="navBarButton">
+                    return (<li className="navBarLink">
                         <div href="">
                             {item}
                         </div>

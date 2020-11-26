@@ -12,7 +12,7 @@ const Home = () => {
         <ViewportProvider>
             <NavBar />
 
-            <LocationMap />
+            {/* <LocationMap /> */}
 
 
             {/* <MenuPage /> */}
