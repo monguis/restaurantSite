@@ -25,11 +25,12 @@ const NavBar = () => {
             <ul className={mobileMenuButtonState ? 'navBarLinkList active' : 'navBarLinkList'}>
                 {linkObjectsArray.map(item => {
                     return (
-                        <li className="navBarLink"  onClick={handleMenuButtonCLick}>
-                            <Link to={item.href} >
+                        <Link to={item.href} >
+                            <li className="navBarLink" onClick={handleMenuButtonCLick}>
                                 {item.name}
-                            </Link>
-                        </li>)
+
+                            </li>
+                        </Link>)
                 })}
                 <li >
                     <Button >
