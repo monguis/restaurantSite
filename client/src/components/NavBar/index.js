@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./NavBarDesignStyle.css";
 import { useViewportContext } from "../../util/contexts/ViewportContext/index.js";
 import { Button } from "./NavBarButton/"
+import { Link } from 'react-router-dom';
+import { linkObjectsArray } from './linkObjects';
 
 const NavBar = () => {
 
@@ -21,14 +23,17 @@ const NavBar = () => {
             </div>
 
             <ul className={mobileMenuButtonState ? 'navBarLinkList active' : 'navBarLinkList'}>
-                {["Home", "Menu", "Contact us", "Locations", "About"].map(item => {
+                {linkObjectsArray.map(item => {
                     return (
                         <li className="navBarLink">
-                            {item}
+                            <Link to={item.href}>
+                                {item.name}
+                            </Link>
+
                         </li>)
                 })}
-                <li>
-                    <Button>
+                <li >
+                    <Button >
                         Order Now
                     </Button>
                 </li>

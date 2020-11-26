@@ -7,11 +7,6 @@
     font-size: 1.2rem;
 }
 
-NavBarButton {
-    color: white;
-    background: blue;
-}
-
 .companyLogo {
     color: #fff;
     justify-self: start;
@@ -25,7 +20,7 @@ NavBarButton {
 
 .navBarLinkList {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;
