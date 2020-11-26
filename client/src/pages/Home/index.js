@@ -12,7 +12,7 @@ const Home = () => {
 
             {/* <MenuPage /> */}
 
-            {/* <Carousel>
+            <Carousel>
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
@@ -26,11 +26,7 @@ const Home = () => {
             <h2>
                 map
                 </h2>
-            <footer>
-                footer
-            </footer> */}
-
-            home
+    
     </div>)
 }
 

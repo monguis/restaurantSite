@@ -19,17 +19,16 @@ const NavBar = () => {
         <nav className="NavBarElements">
             <div className="companyLogo">company logo</div>
             <div className="MobileMenuButton" onClick={handleMenuButtonCLick}>
-                {mobileMenuButtonState ? <i class="fas fa-chevron-left"></i> : <i class="fas fa-bars"></i>}
+                {mobileMenuButtonState ? <i className="fas fa-chevron-left"></i> : <i className="fas fa-bars"></i>}
             </div>
 
             <ul className={mobileMenuButtonState ? 'navBarLinkList active' : 'navBarLinkList'}>
                 {linkObjectsArray.map(item => {
                     return (
-                        <li className="navBarLink">
-                            <Link to={item.href}>
+                        <li className="navBarLink"  onClick={handleMenuButtonCLick}>
+                            <Link to={item.href} >
                                 {item.name}
                             </Link>
-
                         </li>)
                 })}
                 <li >
