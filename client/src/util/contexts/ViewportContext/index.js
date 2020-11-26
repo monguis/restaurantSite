@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 
 const ViewportContext = React.createContext({});
 
-
 export const useViewportContext = () => {
   const [width, height] = useContext(ViewportContext);
   return { width, height };

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "./NavBarDesignStyle.css";
-import { useViewportContext } from "../ViewportContext/"
-
+import { useViewportContext } from "../../util/contexts/ViewportContext/index.js";
+import { Button } from "./NavBarButton/"
 
 const NavBar = () => {
 
     const [mobileMenuButtonState, setMobileMenuButton] = useState(false);
 
     const handleMenuButtonCLick = () => {
-        setMobileMenuButton(mobileMenuButtonState=> !mobileMenuButtonState);
+        setMobileMenuButton(mobileMenuButtonState => !mobileMenuButtonState);
     }
 
-    const { width, height } = useViewportContext()
+    // const { width, height } = useViewportContext()
 
     return (
         <nav className="NavBarElements">
@@ -21,13 +21,17 @@ const NavBar = () => {
             </div>
 
             <ul className={mobileMenuButtonState ? 'navBarLinkList active' : 'navBarLinkList'}>
-                {["Home", "Order now", "Menu", "Contact us", "About"].map(item => {
-                    return (<li className="navBarLink">
-                        <div href="">
+                {["Home", "Menu", "Contact us", "Locations", "About"].map(item => {
+                    return (
+                        <li className="navBarLink">
                             {item}
-                        </div>
-                    </li>)
+                        </li>)
                 })}
+                <li>
+                    <Button>
+                        Order Now
+                    </Button>
+                </li>
             </ul>
 
 

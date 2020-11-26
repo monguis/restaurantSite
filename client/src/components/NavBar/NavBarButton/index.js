@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 const STYLES = [
     "btn--primary",
@@ -10,7 +11,7 @@ const SIZES = [
     "btn--large"
 ]
 
-export const NavBarItem = ({
+export const Button = ({
     children,
     type,
     onClick,
