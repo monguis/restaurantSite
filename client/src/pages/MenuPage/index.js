@@ -5,11 +5,18 @@ import "./MenuPage.css"
 const MenuPage = () => {
 
     const [menuIndex, setMenuIndex] = useState(0);
+    const [mobileMenuState, setMobileMenuState] = useState(false)
+
+    const handleMenuButtonClick = () => {
+        console.log(mobileMenuState)
+        setMobileMenuState(mobileMenuState => !mobileMenuState)
+    }
 
     return (
 
         <div id="menuContainer">
-            <div id="sectionSidebarWrapper">
+            <div id="mobileMenuButton" onClick={handleMenuButtonClick}>boton</div>
+            <div id='sectionSidebarWrapper' className={`${mobileMenuState? "active":""}`}>
                 <div id="sectionSidebar">
                     <h1>Menu</h1>
                     <ul>
