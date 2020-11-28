@@ -8,19 +8,28 @@ const MenuPage = () => {
     const [mobileMenuState, setMobileMenuState] = useState(false)
 
     const handleMenuButtonClick = () => {
-        console.log(mobileMenuState)
         setMobileMenuState(mobileMenuState => !mobileMenuState)
     }
+
+    const handleSidebarButtonClick = (newIndex) => {
+        // e.preventDefault()
+        setMobileMenuState(false)
+        setMenuIndex(newIndex)
+        document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({behavior:"smooth"});
+    }
+
+
+
 
     return (
 
         <div id="menuContainer">
             <div id="mobileMenuButton" onClick={handleMenuButtonClick}>boton</div>
-            <div id='sectionSidebarWrapper' className={`${mobileMenuState? "active":""}`}>
+            <div id='sectionSidebarWrapper' className={`${mobileMenuState ? "active" : ""}`}>
                 <div id="sectionSidebar">
-                    <h1>Menu</h1>
-                    <ul>
-                        {menu.map((section, arrayIndex) => <li className="sidebarElement" onClick={() => { setMenuIndex(arrayIndex) }}>
+                    <h1 style={{ textAlign: "center" }}>Menu</h1>
+                    <ul id="sidebarElementList">
+                        {menu.map((section, arrayIndex) => <li className="sidebarElement" onClick={() => { handleSidebarButtonClick(arrayIndex) }}>
                             {section.title}
                         </li>)}
                     </ul>
@@ -28,22 +37,32 @@ const MenuPage = () => {
             </div>
 
             <div id="sectionMenuDisplay">
-                <h2 className='sectionTitle'>{menu[menuIndex].title}</h2>
-                <div className="sectionMenuGrid">
 
-                    {menu[menuIndex].sectionItems.map(item =>
-                        <div className="sectionMenuGridElement">
-                            <h4>NAME</h4>
-                            <p>Hopeful vaccine news and a big lifeline for the second-biggest theatre chain operator sent a jolt through other cinema stocks on Monday.Hopeful vaccine news and a big lifeline for the second-biggest theatre chain operator sent a jolt through other cinema stocks on Monday.</p>
-                            <h6>Price</h6>
-                            <p>notes if any</p>
-                        </div>)}
+                {menu.map(menuSection => <div>
+                    <h2 className='sectionTitle' key={`${menuSection.title}key`} id={`${menuSection.title}tag`} >{menuSection.title}</h2>
+                    <div className="sectionMenuGrid">
 
+                        {menuSection.sectionItems.map((item, index) =>
+                            <div key={`${menuSection.title}item-${index}`} className="sectionMenuGridElement">
+                                <h4 className="menuItemTitle">NAME</h4>
+                                <p>Hopeful vaccine news and a big lifeline for
+                                the second-biggest theatre chain operator sent
+                                a jolt through other cinema stocks on Monday
+                                .Hopeful vaccine news and a big lifeline for
+                                the second-biggest theatre chain operator sent
+                                a jolt through other cinema stocks on Monday.
+                                <span className="menuItemPrice"> 12.99</span></p>
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </div>
+                )}
 
+            </div>
+
+        </div>
     )
+
 }
 
 export default MenuPage;

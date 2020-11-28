@@ -1,5 +1,9 @@
 const menu = [
     {
+        title: "Appetizers",
+        sectionItems: [1, 2, 3]
+    },
+    {
         title: "Burritos",
         sectionItems: [1, 2, 3]
     },

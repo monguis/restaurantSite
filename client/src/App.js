@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <NavBar/>
+        <NavBar />
         <Switch>
           <Route path="/locations">
             <LocationsPage />
@@ -34,7 +34,9 @@ class App extends Component {
             <Home />
           </Route>
         </Switch>
+        <footer></footer>
       </Router>
+
     )
   }
 }

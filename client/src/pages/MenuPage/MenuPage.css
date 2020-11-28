@@ -3,6 +3,11 @@
     display: flex;
 }
 
+#sidebarElementList {
+    margin: 0 auto;
+    padding: 0;
+}
+
 #sectionSidebarWrapper {
     position: relative;
     width: 30%;
@@ -10,6 +15,7 @@
 }
 
 #sectionSidebar {
+    font-family: 'Architects Daughter', cursive;
     position: sticky;
     top: 0;
     padding: 3rem;
@@ -21,12 +27,14 @@
     list-style: none;
     font-size: 2rem;
     padding: 1rem 0;
-    border: red 1px dotted;
+    margin: 0.5rem 0;
+    cursor: pointer;
 }
 
 #sectionMenuDisplay {
     padding: 3rem;
     width: 70%;
+
 }
 
 #mobileMenuButton {
@@ -40,15 +48,25 @@
     column-gap: 12%;
     grid-auto-rows: minmax(100px, auto);
     overflow: hidden;
+    transition: 0.25s all ease;
 }
 
 .sectionMenuGridElement {
     position: relative;
-    border: blue 2px solid;
+}
+
+.menuItemTitle {
+    font-family: 'Architects Daughter', cursive;
+}
+
+.menuItemPrice {
+    font-family: 'Chango', cursive;
 }
 
 .sectionTitle {
     text-align: center;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 960px) {
@@ -66,7 +84,7 @@
         z-index: 10;
         width: 100%;
         max-width: 100%;
-        height:100%;
+        height: 100%;
         position: absolute;
         top: 0;
         background: blue;
@@ -75,10 +93,11 @@
     }
     #sectionSidebarWrapper.active {
         background: red;
-        left:0;
+        left: 0;
     }
     #sectionSidebar {
         width: 100%;
+        padding: 0;
     }
     #sectionMenuDisplay {
         padding: 3rem;
