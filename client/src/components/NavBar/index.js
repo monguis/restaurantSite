@@ -13,8 +13,6 @@ const NavBar = () => {
         setMobileMenuButton(mobileMenuButtonState => !mobileMenuButtonState);
     }
 
-    // const { width, height } = useViewportContext()
-
     return (
         <nav className="NavBarElements">
             <div className="companyLogo">company logo</div>

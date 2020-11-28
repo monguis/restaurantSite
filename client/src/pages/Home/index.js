@@ -7,11 +7,6 @@ const Home = () => {
 
     return (<div>
 
-            {/* <LocationMap /> */}
-
-
-            {/* <MenuPage /> */}
-
             <Carousel>
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
