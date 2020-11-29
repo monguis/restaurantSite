@@ -12,7 +12,6 @@ const MenuPage = () => {
     }
 
     const handleSidebarButtonClick = (newIndex) => {
-        // e.preventDefault()
         setMobileMenuState(false)
         setMenuIndex(newIndex)
         document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({behavior:"smooth"});

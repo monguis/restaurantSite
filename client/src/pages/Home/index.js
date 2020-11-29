@@ -7,11 +7,15 @@ const Home = () => {
 
     return (<div>
 
-            <Carousel>
+            <Carousel
+             onLoad={"this.handleImageLoaded.bind(this)"}
+             onError={"this.handleImageLoaded.bind(this)"}
+            >
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
                 <img src="https://picsum.photos/2200" alt="1" />
             </Carousel>
+            
             <h2>hot clicks
             
             </h2>
