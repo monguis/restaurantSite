@@ -19,8 +19,8 @@ const Home = () => {
         
             <Carousel>
                 <BlurImageComponent tinySrc = {picture1Small} largeSrc = {picture1Large}/>
-                <BlurImageComponent tinySrc = {picture2Small} largeSrc = {picture2Large}/>
                 <BlurImageComponent tinySrc = {picture3Small} largeSrc = {picture3Large}/>
+                <BlurImageComponent tinySrc = {picture2Small} largeSrc = {picture2Large}/>
             </Carousel>
             
             <h2>hot clicks

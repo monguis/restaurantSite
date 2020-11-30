@@ -2,12 +2,9 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    max-height: 45rem;
+    height: 45rem;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     display: flex;
-    align-items: center;
 }
 
 .sliderButton {
@@ -30,7 +27,7 @@
     bottom: 0;
     left: 50%;
     text-align: center;
-    background-color: black;
+    background: transparent;
     padding: 0.2rem;
     border-radius: 15px;
     transform: translateX(-50%);
@@ -39,11 +36,19 @@
 }
 
 .circleButton {
+    font-size: 0.5rem;
     background-color: transparent;
     outline: none !important;
     border: none !important;
     color: white;
     transition: 0.5s all;
+    text-align: center;
+}
+
+.circleButton.active {
+    color:grey;
+
+    text-shadow:0 0 0 black, 0 0 0.3rem blue, 0 0 0.5rem black ;
 }
 
 #moveRightSliderButton {
@@ -56,4 +61,33 @@
 
 .sliderButton:hover {
     text-shadow: 0 0 20px white;
+}
+
+@media screen and (max-width: 960px) {
+    .carouselSlider {
+        height: 200px;
+    }
+    .circleButtonList {
+        bottom: 0;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 15px;
+        transform: translateX(-50%);
+        display: flex;
+        list-style: none;
+    }
+    .circleButton {
+        font-size: 0.5rem;
+        width: 0;
+        background-color: transparent;
+        outline: none !important;
+        border: none !important;
+        margin: auto 0;
+        color: white;
+        transition: 0.5s all;
+    }
+    .sliderButton {
+        color: transparent;
+        text-shadow: none;
+    }
 }

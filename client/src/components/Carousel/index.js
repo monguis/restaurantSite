@@ -53,8 +53,8 @@ const Carousel = ({ children }) => {
             <ul className="circleButtonList">
                 {children.map((_, childIndex) =>
                     <li>
-                        <button className="circleButton" onClick={() => setIndexTo(childIndex)}>
-                            {childIndex !== index ? <i class="fas fa-circle"></i> : <i class="fas fa-dot-circle"></i>}
+                        <button className={`${childIndex === index ? "circleButton active":"circleButton"}`} onClick={() => setIndexTo(childIndex)}>
+                            <i className="fas fa-circle"></i>
                         </button>
                     </li>)}
             </ul>

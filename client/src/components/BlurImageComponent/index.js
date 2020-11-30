@@ -10,7 +10,8 @@ const BlurImageComponent = ({ tinySrc, largeSrc }) => {
             src={src}
             style={{
                 width: "100%",
-                height:"100%",
+                height: "100%",
+                objectFit: "cover",
                 filter: blur
                     ? "blur(20px)"
                     : "none",
