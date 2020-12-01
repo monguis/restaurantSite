@@ -49,11 +49,19 @@ const Carousel = ({ children }) => {
                 <i class="fas fa-chevron-left"></i>
             </button>
 
+            <div className="carouselInfoLoader" >
+                <div className="infoLoaderTextField">
+                    <h3>
+                        HOla como estan
+                    </h3>
+                </div>
+
+            </div>
 
             <ul className="circleButtonList">
                 {children.map((_, childIndex) =>
                     <li>
-                        <button className={`${childIndex === index ? "circleButton active":"circleButton"}`} onClick={() => setIndexTo(childIndex)}>
+                        <button className={`${childIndex === index ? "circleButton active" : "circleButton"}`} onClick={() => setIndexTo(childIndex)}>
                             <i className="fas fa-circle"></i>
                         </button>
                     </li>)}
