@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SlideElement from "../SlideElement";
 import "./CarouselFunctionalStyle.css";
 import { startInterval as sliderInterval, stopInterval as stopSliderInterval } from "../intervals/";
+import { Link } from "react-router-dom"
 
 const Carousel = ({ children }) => {
 
@@ -49,12 +50,25 @@ const Carousel = ({ children }) => {
                 <i class="fas fa-chevron-left"></i>
             </button>
 
+            <div className="carouselShadowFrame" >
+                {/* <div className="carouselInfoContainer"> */}
+                    <h2 className="infoContainerTextField" >
+                        Come Celebrate the Mexican Cuisine (insertar data aqui)
+                    </h2>
+                    <Link to="/menu">
+                        <button className="infoContainerButton"  >
+                            Menu
+                        </button>
+                    </Link>
+                {/* </div> */}
+
+            </div>
 
             <ul className="circleButtonList">
                 {children.map((_, childIndex) =>
                     <li>
-                        <button className="circleButton" onClick={() => setIndexTo(childIndex)}>
-                            {childIndex !== index ? <i class="fas fa-circle"></i> : <i class="fas fa-dot-circle"></i>}
+                        <button className={`${childIndex === index ? "circleButton active" : "circleButton"}`} onClick={() => setIndexTo(childIndex)}>
+                            <i className="fas fa-circle"></i>
                         </button>
                     </li>)}
             </ul>
