@@ -13,7 +13,7 @@ import picture3Small from "../../components/Carousel/images/picture3Small.jpg";
 
 const Home = () => {
 
-    return (<div>
+    return (<>
 
 
         
@@ -33,7 +33,7 @@ const Home = () => {
                 map
                 </h2>
     
-    </div>)
+    </>)
 }
 
 export default Home;

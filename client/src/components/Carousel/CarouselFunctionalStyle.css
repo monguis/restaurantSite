@@ -2,14 +2,13 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 45rem;
+    height: 70vh;
     box-sizing: border-box;
     display: flex;
 }
 
-.carouselInfoLoader{
-    position:relative;
-    background: transparent;
+.carouselShadowFrame {
+    position: relative;
     box-shadow: inset 0 0 10rem 4rem black;
     width: 100%;
     height: 100%;
@@ -19,16 +18,45 @@
     color: white;
 }
 
-
-
-.infoLoaderTextField{
-    position: absolute;
-    bottom:20%;
+.carouselInfoContainer {
+    position: relative;
+    top: 0;
+    padding: 0;
+    font-size: 2rem;
     left: 50%;
-    background-color: black;
-    width: 60%;
-    transform: translateX(-50%);
-    height:40%;
+    margin: 0;
+    width: 80%;
+    height: 100%;
+    transform: translateX(-50%)
+}
+
+.infoContainerTextField {
+    /* margin: 1em 0; */
+    font-size: 2rem;
+    font-family: 'Architects Daughter', cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    transition: all 0.25s ease;
+    text-align: center;
+    text-shadow: 0 0 0.5rem black;
+}
+
+.infoContainerButton {
+    position: absolute;
+    top: 50%;
+    /* margin: 1em 0; */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 1rem 2rem;
+    border:2px solid;
+    border-radius:1rem;
+    background:transparent;
+    color:white;
+    font-family: 'Architects Daughter', cursive;
+    box-shadow:inset 0 0 5px 2px black, 0 0 5px 2px black; 
+    text-shadow: 0 0 5px 2px black;
 }
 
 .sliderButton {
@@ -72,8 +100,8 @@
 }
 
 .circleButton.active {
-    color:grey;
-    text-shadow: 0 0 0.3rem 1rem blue, 0 0 0.5rem 2rem black ;
+    color: grey;
+    text-shadow: 0 0 0.3rem 1rem blue, 0 0 0.5rem 2rem black;
 }
 
 #moveRightSliderButton {
@@ -89,22 +117,21 @@
 }
 
 @media screen and (max-width: 960px) {
-    
     .carouselSlider {
         height: 400px;
     }
- 
     .sliderButton {
         width: 20%;
         color: transparent;
         text-shadow: none;
     }
-
-    .carouselInfoLoader{
+    .carouselShadowFrame {
         box-shadow: inset 0 0 2rem 1rem black;
     }
-
     .sliderButton:hover {
         text-shadow: none;
+    }
+    .infoContainerTextField {
+        font-size:1.2rem;    
     }
 }
