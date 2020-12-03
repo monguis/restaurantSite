@@ -3,13 +3,14 @@ import SlideElement from "../SlideElement";
 import "./CarouselFunctionalStyle.css";
 import { startInterval as sliderInterval, stopInterval as stopSliderInterval } from "../intervals/";
 import { Link } from "react-router-dom"
+import FadeTextDiv from "../FadeTextDiv";
 
 const Carousel = ({ children }) => {
 
     const messages = [
-"Come Celebrate the Mexican Cuisine (insertar data aqui)1",
-"Come Celebrate the Mexican Cuisine (insertar data aqui)2",
-"Come Celebrate the Mexican Cuisine (insertar data aqui)3"
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)1",
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)2",
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)3"
     ]
 
     const [index, setIndex] = useState(0);
@@ -57,6 +58,7 @@ const Carousel = ({ children }) => {
             </button>
 
             <div className="carouselShadowFrame" >
+                <FadeTextDiv>
                     <h2 className="infoContainerTextField" >
                         {messages[index]}
                     </h2>
@@ -65,7 +67,12 @@ const Carousel = ({ children }) => {
                             Menu
                         </button>
                     </Link>
+                </FadeTextDiv>
             </div>
+
+
+
+
 
             <ul className="circleButtonList">
                 {children.map((_, childIndex) =>

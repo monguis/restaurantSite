@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
 
-const FadeTextDiv = ({ children, transitionTime }) => {
+const FadeTextDiv = ({ children }) => {
 
-    const [textToShow, setTextToShow] = useState(children);
+    const [contentToShow, setContentToShow] = useState(children);
     const [fadeDiv, setFadeDiv] = useState(false);
 
     useEffect(() => {
-        if (textToShow !== children) {
-            FadeDivFunction()
+        if (contentToShow !== children) {
+            fadeDivFunction()
         }
     }, [children])
 
-    const FadeDivFunction = () => {
+    const fadeDivFunction = () => {
         setFadeDiv(true)
         const fadeTimeout = setTimeout(() => {
-            setTextToShow(children)
             setFadeDiv(false)
-        }, 250);
-        clearTimeout(fadeTimeout)
+            setContentToShow(children)
+        }, 250)
     }
 
     return (
-        <div style={{ opacity: fadeDiv ? "0" : "1", transition: `${transitionTime}s opacity ease-in-out` }}>
-            {textToShow}
+        <div style={{ opacity: fadeDiv ? "0" : "1", transition: "0.25s opacity ease-in-out" }}>
+            {contentToShow}
         </div>)
 }
 
