@@ -1,0 +1,16 @@
+.container{
+    padding:0 10vw;
+    align-content: center;
+}
+
+@media screen and (min-width: 1920px) {
+    .container{
+        padding:0 20vw;
+    }
+}
+
+/* @media screen and (max-width: 960px) {
+    .container{
+        padding:0;
+    }
+} */

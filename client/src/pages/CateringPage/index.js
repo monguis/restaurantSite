@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CateringPage.css"
+import ContainerComponent from "../../components/ContainerComponent/"
 
 const CateringPage = () => {
 
@@ -16,29 +17,45 @@ const CateringPage = () => {
         setForm(formState => ({ ...formState, [name]: value }));
     }
 
-    const {fName, lName, email, phone, inquiry} = formState;
+    const { fName, lName, email, phone, inquiry } = formState;
 
-    return <div>
+    const renderTextInput = (labelText, type, value) => {
+        return (
+            <div className="inputDiv">
+                <label for={`${type}Field`}>{labelText}</label>
+
+                <input id={`${type}Field`} type="text" name={type} value={value} onChange={(e) => { updateFormValue(e) }}/>
+                
+
+            </div>
+        )
+    }
+
+    const renderTextArea = (labelText, type, value) => {
+        return <div className="textAreaDiv">
+
+            <label for={`${type}Field`}>{labelText}</label>
+            <textarea id={`${type}Field`} type="text" placeholder="What would you like to know?" name={type}
+                value={value}
+                onChange={(e) => { updateFormValue(e) }} />
+        </div>
+    }
+
+
+
+    return <ContainerComponent>
         <h3>Yes, We Cater!</h3>
         <form id="cateringForm">
-            <label>First Name
-            <input type="text" name="fName" value={fName} onChange={(e) => { updateFormValue(e) }}></input>
-            </label>
-            <label>Last Name
-            <input type="text" name="lName" value={lName} onChange={(e) => { updateFormValue(e) }}></input>
-            </label>
-            <label>Email
-            <input type="email" name="email" value={email} onChange={(e) => { updateFormValue(e) }}></input>
-            </label>
-            <label>Phone Number
-            <input type="text" name="phone" value={phone} onChange={(e) => { updateFormValue(e) }}></input>
-            </label>
-            <label>Question
-            <textarea type="tel"  placeholder="What do you want to know?" name="inquiry" value={inquiry} onChange={(e) => { updateFormValue(e) }}></textarea>
-            </label>
+            {renderTextInput("First Name", "fName", fName)}
+            {renderTextInput("Last Name", "lName", lName)}
+            {renderTextInput("Phone Number", "phone", phone)}
+            {renderTextInput("Email", "email", email)}
+            {renderTextArea("What's your question", "inquiry", inquiry)}
+
+
             <button type="submit">Submit</button>
         </form>
-    </div>
+    </ContainerComponent>
 }
 
 export default CateringPage;
