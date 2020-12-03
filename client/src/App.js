@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import MenuPage from "./pages/MenuPage";
 import AboutPage from "./pages/AboutPage";
 import LocationsPage from "./pages/LocationsPage";
-import ContactPage from "./pages/ContactPage";
+import CateringPage from "./pages/CateringPage";
 import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import {
@@ -28,7 +28,7 @@ class App extends Component {
             <MenuPage />
           </Route>
           <Route path="/contact">
-            <ContactPage />
+            <CateringPage />
           </Route>
           <Route path={["/", "home"]}>
             <Home />
