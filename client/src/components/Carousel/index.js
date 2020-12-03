@@ -2,8 +2,16 @@ import React, { useState, useEffect } from "react";
 import SlideElement from "../SlideElement";
 import "./CarouselFunctionalStyle.css";
 import { startInterval as sliderInterval, stopInterval as stopSliderInterval } from "../intervals/";
+import { Link } from "react-router-dom"
+import FadeTextDiv from "../FadeTextDiv";
 
 const Carousel = ({ children }) => {
+
+    const messages = [
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)1",
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)2",
+        "Come Celebrate the Mexican Cuisine (insertar data aqui)3"
+    ]
 
     const [index, setIndex] = useState(0);
     const lastIndexOfChildrenArray = children.length - 1;
@@ -49,12 +57,28 @@ const Carousel = ({ children }) => {
                 <i class="fas fa-chevron-left"></i>
             </button>
 
+            <div className="carouselShadowFrame" >
+                <FadeTextDiv>
+                    <h2 className="infoContainerTextField" >
+                        {messages[index]}
+                    </h2>
+                    <Link to="/menu">
+                        <button className="infoContainerButton"  >
+                            Menu
+                        </button>
+                    </Link>
+                </FadeTextDiv>
+            </div>
+
+
+
+
 
             <ul className="circleButtonList">
                 {children.map((_, childIndex) =>
                     <li>
-                        <button className="circleButton" onClick={() => setIndexTo(childIndex)}>
-                            {childIndex !== index ? <i class="fas fa-circle"></i> : <i class="fas fa-dot-circle"></i>}
+                        <button className={`${childIndex === index ? "circleButton active" : "circleButton"}`} onClick={() => setIndexTo(childIndex)}>
+                            <i className="fas fa-circle"></i>
                         </button>
                     </li>)}
             </ul>
