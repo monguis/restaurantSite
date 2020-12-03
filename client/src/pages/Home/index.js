@@ -10,18 +10,22 @@ import picture2Small from "../../components/Carousel/images/picture2Small.jpg";
 
 import picture3Large from "../../components/Carousel/images/picture3Large.jpg";
 import picture3Small from "../../components/Carousel/images/picture3Small.jpg";
+import FadeTextDiv from "../../components/FadeTextDiv";
 
 const Home = () => {
 
     return (<>
+    
 
-
-        
+        <FadeTextDiv>
+            Hola
+        </FadeTextDiv>
+{/*         
             <Carousel>
                 <BlurImageComponent tinySrc = {picture1Small} largeSrc = {picture1Large}/>
                 <BlurImageComponent tinySrc = {picture3Small} largeSrc = {picture3Large}/>
                 <BlurImageComponent tinySrc = {picture2Small} largeSrc = {picture2Large}/>
-            </Carousel>
+            </Carousel> */}
             
             <h2>hot clicks
             
