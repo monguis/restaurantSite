@@ -6,6 +6,12 @@ import { Link } from "react-router-dom"
 
 const Carousel = ({ children }) => {
 
+    const messages = [
+"Come Celebrate the Mexican Cuisine (insertar data aqui)1",
+"Come Celebrate the Mexican Cuisine (insertar data aqui)2",
+"Come Celebrate the Mexican Cuisine (insertar data aqui)3"
+    ]
+
     const [index, setIndex] = useState(0);
     const lastIndexOfChildrenArray = children.length - 1;
 
@@ -51,17 +57,14 @@ const Carousel = ({ children }) => {
             </button>
 
             <div className="carouselShadowFrame" >
-                {/* <div className="carouselInfoContainer"> */}
                     <h2 className="infoContainerTextField" >
-                        Come Celebrate the Mexican Cuisine (insertar data aqui)
+                        {messages[index]}
                     </h2>
                     <Link to="/menu">
                         <button className="infoContainerButton"  >
                             Menu
                         </button>
                     </Link>
-                {/* </div> */}
-
             </div>
 
             <ul className="circleButtonList">
