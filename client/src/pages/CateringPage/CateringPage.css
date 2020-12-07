@@ -1,3 +1,11 @@
+.cateringLegend{
+    text-align: center;
+}
+
+.cateringLegendWrapper{
+    border:1px solid black;
+}
+
 #cateringForm {
     position: relative;
     display: grid;
@@ -21,10 +29,11 @@
 .inputDiv input {
     box-sizing: border-box;
     width: 100%;
-    height: 1.8rem;
-    font-size: 1.2rem;
+    height: 2rem;
+    font-size: 1rem;
     border-radius: 0.5rem;
     margin: 1rem 0;
+    padding:10px;
 }
 
 .textAreaDiv {
@@ -42,6 +51,8 @@
     height: 6rem;
     font-size: 1rem;
     resize: none;
+    border-radius: 0.5rem;
+    padding:10px;
 }
 
 .textAreaDiv label {

@@ -24,8 +24,8 @@ const CateringPage = () => {
             <div className="inputDiv">
                 <label for={`${type}Field`}>{labelText}</label>
 
-                <input id={`${type}Field`} type="text" name={type} value={value} onChange={(e) => { updateFormValue(e) }}/>
-                
+                <input id={`${type}Field`} type="text" name={type} value={value} onChange={(e) => { updateFormValue(e) }} />
+
 
             </div>
         )
@@ -45,12 +45,17 @@ const CateringPage = () => {
 
     return <ContainerComponent>
         <h3>Yes, We Cater!</h3>
+        <div className="cateringLegendWrapper">
+            <p className="cateringLegend">
+                We are honored to be part of your special moments, and We know you want it to be perfect. Tell us about it, we will do our best to make that moment even more memorable.
+            </p>
+        </div>
         <form id="cateringForm">
             {renderTextInput("First Name", "fName", fName)}
             {renderTextInput("Last Name", "lName", lName)}
             {renderTextInput("Phone Number", "phone", phone)}
             {renderTextInput("Email", "email", email)}
-            {renderTextArea("What's your question", "inquiry", inquiry)}
+            {renderTextArea("What's your question?", "inquiry", inquiry)}
 
 
             <button type="submit">Submit</button>

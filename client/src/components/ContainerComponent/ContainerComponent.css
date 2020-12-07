@@ -1,16 +1,10 @@
-.container{
-    padding:0 10vw;
+.container {
+    padding: 0 15vw;
     align-content: center;
 }
 
-@media screen and (min-width: 1920px) {
-    .container{
-        padding:0 20vw;
+@media screen and (max-width: 960px) {
+    .container {
+        padding: 0 10vw;
     }
 }
-
-/* @media screen and (max-width: 960px) {
-    .container{
-        padding:0;
-    }
-} */
