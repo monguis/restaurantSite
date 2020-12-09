@@ -34,7 +34,6 @@
 #sectionMenuDisplay {
     padding: 3rem;
     width: 70%;
-
 }
 
 #mobileMenuButton {
@@ -70,15 +69,27 @@
 }
 
 @media screen and (max-width: 960px) {
-    #mobileMenuButton {
+    #mobileMenuButtonWrapper {
         z-index: 20;
         display: block;
-        position: fixed;
-        top: 4rem;
+        position: sticky;
+        top: 0;
         left: 0;
-        width: 100%;
-        height: 2rem;
-        background: cyan;
+        height: 0;
+        transition: 0.5s opacity ease;
+    }
+    .mobileMenuButton {
+        position: relative;
+        width:5rem;
+        top: 1rem;
+        left: 1rem;
+        margin: 0;
+        padding: 10px;
+        border-radius: 10px;
+        background: transparent;
+    }
+    .mobileMenuButton span {
+        opacity: 0;
     }
     #sectionSidebarWrapper {
         z-index: 10;

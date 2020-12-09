@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import menu from "./menuToRender";
 import "./MenuPage.css"
 
 const MenuPage = () => {
 
-    const [menuIndex, setMenuIndex] = useState(0);
     const [mobileMenuState, setMobileMenuState] = useState(false)
 
     const handleMenuButtonClick = () => {
@@ -13,17 +12,19 @@ const MenuPage = () => {
 
     const handleSidebarButtonClick = (newIndex) => {
         setMobileMenuState(false)
-        setMenuIndex(newIndex)
-        document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({behavior:"smooth"});
+        document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({ behavior: "smooth" });
     }
 
 
 
 
-    return (
-
+    return (<>
+        <div id="mobileMenuButtonWrapper">
+            <button className="mobileMenuButton" onClick={handleMenuButtonClick}>
+                <span style={mobileMenuState ? { opacity: 1, display: "inline" } : { opacity: 0, display: "none" }}> <i class="fas fa-chevron-left"></i></span> Menu
+            </button>
+        </div>
         <div id="menuContainer">
-            <div id="mobileMenuButton" onClick={handleMenuButtonClick}>boton</div>
             <div id='sectionSidebarWrapper' className={`${mobileMenuState ? "active" : ""}`}>
                 <div id="sectionSidebar">
                     <h1 style={{ textAlign: "center" }}>Menu</h1>
@@ -60,6 +61,7 @@ const MenuPage = () => {
             </div>
 
         </div>
+    </>
     )
 
 }
