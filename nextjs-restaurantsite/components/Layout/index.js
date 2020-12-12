@@ -1,5 +1,4 @@
 import Head from "next/head";
-import ContainerComponent from "../ContainerComponent";
 import NavBar from "../NavBar";
 
 
@@ -11,9 +10,8 @@ const Layout = ({ children }) => <>
 
     </Head>
     <NavBar />
-    <ContainerComponent>
-        {children}
-    </ContainerComponent>
+    {children}
+
 </>
 
 

@@ -6,12 +6,14 @@ const BlurImageHook = (lowQualitySrc, highQualitySrc) => {
     React.useEffect(() => {
         setSrc(lowQualitySrc);
 
-        const img = new Image();
+        const img = new Image;
         img.src = highQualitySrc;
 
         img.onload = () => {
             setSrc(highQualitySrc);
+            console.log("loaded")
         };
+        console.log(src)
     }, [lowQualitySrc, highQualitySrc]);
 
     return [src, { blur: src === lowQualitySrc }];

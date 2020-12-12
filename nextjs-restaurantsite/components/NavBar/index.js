@@ -14,21 +14,28 @@ const NavBar = () => {
 
     return (
         <nav className={styles.NavBarElements}>
-            <div className={styles.companyLogo}>company logo</div>
-            <div className={styles.MobileMenuButton} onClick={handleMenuButtonCLick}>
-                {mobileMenuButtonState ? <i className="fas fa-chevron-left"></i> : <i className="fas fa-bars"></i>}
+            <Link href="/">
+                <div className={styles.companyLogo}>
+                    company logo
+                </div>
+            </Link>
+
+            <div className={styles.MobileMenuButton}
+                onClick={handleMenuButtonCLick}>
+                {mobileMenuButtonState ?
+                    <i className="fas fa-chevron-left"></i> :
+                    <i className="fas fa-bars"></i>}
             </div>
 
             <ul className={mobileMenuButtonState ? `${styles.navBarLinkList} ${styles.active}` : `${styles.navBarLinkList}`}>
-                {linkObjectsArray.map(item => {
-                    return (
-                        <Link href={item.href} >
-                            <li className={styles.navBarLink} onClick={handleMenuButtonCLick}>
-                                {item.name}
-
-                            </li>
-                        </Link>)
-                })}
+                {linkObjectsArray.map(item =>
+                    <Link href={item.href} >
+                        <li className={styles.navBarLink} 
+                        onClick={handleMenuButtonCLick}>
+                            {item.name}
+                        </li>
+                    </Link>
+                )}
                 <li >
                     <Button >
                         Order Now

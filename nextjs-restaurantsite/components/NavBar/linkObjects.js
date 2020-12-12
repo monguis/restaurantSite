@@ -1,7 +1,7 @@
 export const linkObjectsArray = [
     {
         name: "Home",
-        href: "/home"
+        href: "/"
     },
     {
         name: "We Cater!",

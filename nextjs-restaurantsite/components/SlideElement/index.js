@@ -7,13 +7,11 @@ const SlideElement = props => {
 const {elementController, elementToDisplay} = props;
     return (
         <div
-            className="slideElement"
-            style={{
-                transform: `translateX(${elementController * -100}%)`
-            }}>
-
+            className={styles.slideElement}>
             {elementToDisplay}
-
+            <style jsx>
+                {`transform: translateX(${elementController * -100}%)`}
+            </style>
         </div>
     )
 }

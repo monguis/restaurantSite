@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import menu from "./menuToRender";
 import styles from "../styles/MenuPage.module.css"
+import Layout from "../components/Layout";
 
 const MenuPage = () => {
 
@@ -18,13 +19,20 @@ const MenuPage = () => {
 
 
 
-    return (<>
-        <div id="mobileMenuButtonWrapper">
+    return <Layout>
+        <div id={styles.mobileMenuButtonWrapper}>
             <button className={styles.mobileMenuButton} onClick={handleMenuButtonClick}>
-                <span style={{ opacity: mobileMenuState ? 1 : 0, position: "absolute", transition: "1s all ease" }}>
+                <span>
                     <i class="fas fa-chevron-left"></i>
                 </span>
                      Menu
+                     <style jsx>
+                    {`.mobileMenuButton span{
+                        opacity:1; 
+                        position: absolute; transition: 1s all ease;
+                    }
+                         `}
+                </style>
             </button>
         </div>
 
@@ -32,7 +40,7 @@ const MenuPage = () => {
             <div id={styles.sectionSidebarWrapper}
                 className={mobileMenuState ? styles.active : ""}>
                 <div id={styles.sectionSidebar}>
-                    <h1 style={{ textAlign: "center" }}>
+                    <h1>
                         Menu
                         </h1>
                     <ul id={styles.sidebarElementList}>
@@ -73,8 +81,8 @@ const MenuPage = () => {
                 )}
             </div>
         </div>
-    </>
-    )
+
+    </Layout>
 
 }
 
