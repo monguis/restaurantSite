@@ -1,0 +1,75 @@
+.cateringLegend{
+    text-align: center;
+}
+
+.cateringLegendWrapper{
+    border:1px solid black;
+}
+
+#cateringForm {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
+}
+
+.inputDiv {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    height: 4rem;
+    margin: 1rem 0;
+}
+
+.inputDiv label {
+    font-size: large;
+    cursor: pointer;
+}
+
+.inputDiv input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    padding:10px;
+}
+
+.textAreaDiv {
+    grid-area: 3 / 1 /3 /3;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.textAreaDiv textarea {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    height: 6rem;
+    font-size: 1rem;
+    resize: none;
+    border-radius: 0.5rem;
+    padding:10px;
+}
+
+.textAreaDiv label {
+    font-size: large;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+    #cateringForm {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .textAreaDiv {
+        grid-area:5;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin: 1rem 0;
+    }
+}

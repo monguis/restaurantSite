@@ -4,8 +4,8 @@ export const linkObjectsArray = [
         href: "/home"
     },
     {
-        name: "Contact Us",
-        href: "/contact"
+        name: "We Cater!",
+        href: "/catering"
     },
     {
         name: "Menu",
