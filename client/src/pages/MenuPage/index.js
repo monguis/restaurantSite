@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import menu from "./menuToRender";
 import "./MenuPage.css"
 
 const MenuPage = () => {
 
-    const [menuIndex, setMenuIndex] = useState(0);
     const [mobileMenuState, setMobileMenuState] = useState(false)
 
     const handleMenuButtonClick = () => {
@@ -13,17 +12,20 @@ const MenuPage = () => {
 
     const handleSidebarButtonClick = (newIndex) => {
         setMobileMenuState(false)
-        setMenuIndex(newIndex)
-        document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({behavior:"smooth"});
+        document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({ behavior: "smooth" });
     }
 
 
 
 
-    return (
+    return (<>
+        <div id="mobileMenuButtonWrapper">
+            <button className="mobileMenuButton" onClick={handleMenuButtonClick}>
+                <span style={{ opacity: mobileMenuState ? 1 : 0, position: "absolute", transition: "1s all ease" }}> <i class="fas fa-chevron-left"></i></span> Menu
+            </button>
+        </div>
 
         <div id="menuContainer">
-            <div id="mobileMenuButton" onClick={handleMenuButtonClick}>boton</div>
             <div id='sectionSidebarWrapper' className={`${mobileMenuState ? "active" : ""}`}>
                 <div id="sectionSidebar">
                     <h1 style={{ textAlign: "center" }}>Menu</h1>
@@ -35,31 +37,25 @@ const MenuPage = () => {
                 </div>
             </div>
 
-            <div id="sectionMenuDisplay">
 
+            <div id="sectionMenuDisplay">
                 {menu.map(menuSection => <div>
                     <h2 className='sectionTitle' key={`${menuSection.title}key`} id={`${menuSection.title}tag`} >{menuSection.title}</h2>
                     <div className="sectionMenuGrid">
 
                         {menuSection.sectionItems.map((item, index) =>
                             <div key={`${menuSection.title}item-${index}`} className="sectionMenuGridElement">
-                                <h4 className="menuItemTitle">NAME</h4>
-                                <p>Hopeful vaccine news and a big lifeline for
-                                the second-biggest theatre chain operator sent
-                                a jolt through other cinema stocks on Monday
-                                .Hopeful vaccine news and a big lifeline for
-                                the second-biggest theatre chain operator sent
-                                a jolt through other cinema stocks on Monday.
-                                <span className="menuItemPrice"> 12.99</span></p>
+                                <h4 className="menuItemTitle">{item.name}</h4>
+                                {item.description ? <p>{item.description}</p> : ""}
+                                <span className="menuItemPrice"> ${item.price}</span>
                             </div>
                         )}
                     </div>
                 </div>
                 )}
-
             </div>
-
         </div>
+    </>
     )
 
 }
