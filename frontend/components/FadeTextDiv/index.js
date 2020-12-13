@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const FadeTextDiv = ({ children }) => {
 
     const [contentToShow, setContentToShow] = useState(children);
-    const [fadeDiv, setFadeDiv] = useState(false);
+    const [fadeDiv, setFadeDiv] = useState(true);
 
     useEffect(() => {
         fadeDivFunction()
@@ -25,7 +25,7 @@ const FadeTextDiv = ({ children }) => {
                     `.fadeDiv{
                     opacity: ${fadeDiv ? "0" : "1"};
                     transition: 0.25s opacity ease-in-out;
-                }`
+                    }`
                 }
 
             </style>

@@ -5,16 +5,12 @@ import { startInterval as sliderInterval, stopInterval as stopSliderInterval } f
 import  Link  from "next/link"
 import FadeTextDiv from "../FadeTextDiv";
 
-const Carousel = ({ children }) => {
+const Carousel = ({ slideResponse }) => {
 
-    const messages = [
-        "Come Celebrate the Mexican Cuisine (insertar data aqui)1",
-        "Come Celebrate the Mexican Cuisine (insertar data aqui)2",
-        "Come Celebrate the Mexican Cuisine (insertar data aqui)3"
-    ]
+    console.log(slideResponse)
 
     const [index, setIndex] = useState(0);
-    const lastIndexOfChildrenArray = children.length - 1;
+    const lastIndexOfslideResponseArray = slideResponse.length - 1;
 
 
     useEffect(() => {
@@ -24,11 +20,11 @@ const Carousel = ({ children }) => {
 
 
     const moveRight = () => {
-        setIndex(index => index < lastIndexOfChildrenArray ? index + 1 : 0);
+        setIndex(index => index < lastIndexOfslideResponseArray ? index + 1 : 0);
     }
 
     const moveLeft = () => {
-        setIndex(index => index > 0 ? index - 1 : lastIndexOfChildrenArray);
+        setIndex(index => index > 0 ? index - 1 : lastIndexOfslideResponseArray);
     }
 
     const setIndexTo = (newIndex) => {
@@ -36,9 +32,10 @@ const Carousel = ({ children }) => {
     }
 
     return (
+       
         <div className={styles.carouselSlider} onClick={stopSliderInterval}>
             {
-                children.map(slide => {
+                slideResponse.map(slide => {
                     return <SlideElement elementController={index} elementToDisplay={slide} />
                 })
             }
@@ -60,7 +57,7 @@ const Carousel = ({ children }) => {
             <div className={styles.carouselShadowFrame} >
                 <FadeTextDiv>
                     <h2 className={styles.infoContainerTextField} >
-                        {messages[index]}
+                        {slideResponse[index].message}
                     </h2>
                     <Link href="/menu">
                         <button className={styles.infoContainerButton}  >
@@ -75,7 +72,7 @@ const Carousel = ({ children }) => {
 
 
             <ul className={styles.circleButtonList}>
-                {children.map((_, childIndex) =>
+                {slideResponse.map((_, childIndex) =>
                     <li>
                         <button className={childIndex === index ? `${styles.circleButton} ${styles.active}` : `${styles.circleButton}`} onClick={() => setIndexTo(childIndex)}>
                             <i className="fas fa-circle"></i>
