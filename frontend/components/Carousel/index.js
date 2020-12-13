@@ -72,9 +72,9 @@ const Carousel = ({ slideResponse }) => {
 
 
             <ul className={styles.circleButtonList}>
-                {slideResponse.map((_, childIndex) =>
+                {slideResponse.map((_, slideIndex) =>
                     <li>
-                        <button className={childIndex === index ? `${styles.circleButton} ${styles.active}` : `${styles.circleButton}`} onClick={() => setIndexTo(childIndex)}>
+                        <button className={slideIndex === index ? `${styles.circleButton} ${styles.active}` : `${styles.circleButton}`} onClick={() => setIndexTo(slideIndex)}>
                             <i className="fas fa-circle"></i>
                         </button>
                     </li>)}
