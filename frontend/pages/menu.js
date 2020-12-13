@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import menu from "./menuToRender";
 import styles from "../styles/MenuPage.module.css"
 import Layout from "../components/Layout";
+import { requestMenu } from "../util/API"
 
-const MenuPage = () => {
+const MenuPage = ({ menu }) => {
 
-    const [mobileMenuState, setMobileMenuState] = useState(false)
+    const [mobileMenuState, setMobileMenuState] = useState(false);
 
     const handleMenuButtonClick = () => {
-        setMobileMenuState(mobileMenuState => !mobileMenuState)
+        setMobileMenuState(mobileMenuState => !mobileMenuState);
     }
 
     const handleSidebarButtonClick = (newIndex) => {
@@ -16,10 +16,60 @@ const MenuPage = () => {
         document.getElementById(`${menu[newIndex].title}tag`).scrollIntoView({ behavior: "smooth" });
     }
 
+    const renderMenu = menu =>
+        <div id={styles.menuContainer}>
+            {renderMenuSideBar(menu)}
+            {renderMenuGrid(menu)}
+        </div>
 
 
+    const renderMenuSideBar = menu => <div id={styles.sectionSidebarWrapper}
+        className={mobileMenuState ? styles.active : ""}>
+        <div id={styles.sectionSidebar}>
+            <h1>
+                Menu
+            </h1>
+            <ul id={styles.sidebarElementList}>
+                {menu.map((section, arrayIndex) => section.dishes.length > 0 ?
+                    <li className={styles.sidebarElement}
+                        onClick={() => { handleSidebarButtonClick(arrayIndex) }}>
+                        {section.title}
+                    </li> : "")}
+            </ul>
+        </div>
+    </div>
 
-    return <Layout>
+
+    const renderMenuGrid = menu => <div id={styles.sectionMenuDisplay}>
+        {menu.map(category => <div>
+            <h2 className={styles.sectionTitle}
+                key={`${category.title}key`}
+                id={`${category.title}tag`} >
+                {category.title}
+            </h2>
+
+            <div className={styles.sectionMenuGrid}>
+
+                {category.dishes.map((dish, index) => renderMenuTile(dish, index))}
+            </div>
+        </div>
+        )}
+    </div>
+
+
+    const renderMenuTile = (dish, index) => <div key={`${dish.title}tile`}
+        className={styles.sectionMenuGridElement}>
+        <h4 className={styles.menuItemTitle}>
+            {dish.title}
+        </h4>
+        {dish.description ? <p>{dish.description}</p> : ""}
+        <span className={styles.menuItemPrice}>
+            ${dish.price}
+        </span>
+    </div>
+
+
+    const renderMenuMobileButton = () =>
         <div id={styles.mobileMenuButtonWrapper}>
             <button className={styles.mobileMenuButton} onClick={handleMenuButtonClick}>
                 <span>
@@ -36,54 +86,20 @@ const MenuPage = () => {
             </button>
         </div>
 
-        <div id={styles.menuContainer}>
-            <div id={styles.sectionSidebarWrapper}
-                className={mobileMenuState ? styles.active : ""}>
-                <div id={styles.sectionSidebar}>
-                    <h1>
-                        Menu
-                        </h1>
-                    <ul id={styles.sidebarElementList}>
-                        {menu.map((section, arrayIndex) =>
-                            <li className={styles.sidebarElement}
-                                onClick={() => { handleSidebarButtonClick(arrayIndex) }}>
-                                {section.title}
-                            </li>)}
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id={styles.sectionMenuDisplay}>
-                {menu.map(menuSection => <div>
-                    <h2 className={styles.sectionTitle}
-                        key={`${menuSection.title}key`}
-                        id={`${menuSection.title}tag`} >
-                        {menuSection.title}
-                    </h2>
-
-                    <div className={styles.sectionMenuGrid}>
-
-                        {menuSection.sectionItems.map((item, index) =>
-                            <div key={`${menuSection.title}item-${index}`}
-                                className={styles.sectionMenuGridElement}>
-                                <h4 className={styles.menuItemTitle}>
-                                    {item.name}
-                                </h4>
-                                {item.description ? <p>{item.description}</p> : ""}
-                                <span className={styles.menuItemPrice}>
-                                    ${item.price}
-                                </span>
-                            </div>
-                        )}
-                    </div>
-                </div>
-                )}
-            </div>
-        </div>
-
+    return <Layout>
+        {renderMenuMobileButton()}
+        {renderMenu(menu)}
     </Layout>
 
 }
+
+export async function getStaticProps(context) {
+    const res = await requestMenu();
+    const menu = res.data;
+    return {
+        props: { menu }
+    }
+}
+
 
 export default MenuPage;
