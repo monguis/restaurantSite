@@ -41,18 +41,19 @@ const MenuPage = ({ menu }) => {
 
 
     const renderMenuGrid = menu => <div id={styles.sectionMenuDisplay}>
-        {menu.map(category => <div>
+        {menu.map(category => category.dishes.length > 0 ?<div>
             <h2 className={styles.sectionTitle}
                 key={`${category.title}key`}
                 id={`${category.title}tag`} >
                 {category.title}
             </h2>
-
             <div className={styles.sectionMenuGrid}>
-
                 {category.dishes.map((dish, index) => renderMenuTile(dish, index))}
             </div>
-        </div>
+        </div> 
+        
+        :
+        ""
         )}
     </div>
 
