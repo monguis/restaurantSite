@@ -7,8 +7,6 @@ import FadeTextDiv from "../FadeTextDiv";
 
 const Carousel = ({ slideResponse }) => {
 
-    console.log(slideResponse)
-
     const [index, setIndex] = useState(0);
     const lastIndexOfslideResponseArray = slideResponse.length - 1;
 

@@ -1,1 +1,30 @@
+.hotlinkWrapperDiv {
+    background: transparent;
+    position: relative;
+    height: 100%;
+    width: 33%;
+    transition: 0.25s all ease;
+    padding: 0.5rem;
+}
 
+.hotlinkWrapperDiv:hover {
+    padding: 0.1rem;
+}
+
+.hotlinkWrapperDiv:hover img {
+    box-shadow: 0 0 7px 2px whitesmoke;
+}
+
+.hotlinkImageContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.hotlinkDescription {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color:whitesmoke;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}

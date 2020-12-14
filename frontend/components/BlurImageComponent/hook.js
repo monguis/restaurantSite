@@ -11,9 +11,7 @@ const BlurImageHook = (lowQualitySrc, highQualitySrc) => {
 
         img.onload = () => {
             setSrc(highQualitySrc);
-            console.log("loaded")
         };
-        console.log(src)
     }, [lowQualitySrc, highQualitySrc]);
 
     return [src, { blur: src === lowQualitySrc }];
