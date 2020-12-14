@@ -1,17 +1,16 @@
 import Carousel from "../components/Carousel/";
 import Layout from "../components/Layout";
 import ContainerComponent from "../components/ContainerComponent";
-import { requestCarousel } from "../util/API";
+import { requestCarousel, requestHotlinks } from "../util/API";
 import HotlinkContainer from "../components/HotlinkContainer/index";
 
-const Index = ({ carousel }) =>
+const Index = ({ carousel, hotlinks }) =>
     <Layout>
         <Carousel slideResponse={carousel} />
 
         <ContainerComponent>
-            <div>
-                <HotlinkContainer />
-            </div>
+            
+                <HotlinkContainer hotlinkResponse={hotlinks} />
             <h2>
 
             </h2>
@@ -22,12 +21,20 @@ const Index = ({ carousel }) =>
     </Layout>
 
 export async function getStaticProps(context) {
+
+    const promiseArray = [
+        requestCarousel(),
+        requestHotlinks(),
+    ]
+
+    const resultArray = [];
+
+    await Promise.all(promiseArray).then(responses => responses.map(res => resultArray.push(res.data)))
     
-    // const 
-    const res = await requestCarousel();
-    const carousel = await res.data;
+    const [carousel, hotlinks] = resultArray;
+
     return {
-        props: { carousel }
+        props: { carousel, hotlinks }
     }
 }
 export default Index;
