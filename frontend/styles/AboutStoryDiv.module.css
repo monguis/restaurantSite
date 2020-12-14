@@ -1,0 +1,51 @@
+.storyWrapper {
+    position: relative;
+    height: 300px;
+    margin: 2rem 0;
+}
+
+.storyPictureWrapper {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    background-color: red;
+}
+
+.storyParagraphWrapper {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background-color: blue;
+    right: 0;
+}
+
+.mapWrapper {
+    width: 100%;
+    height: 500px;
+    margin: 2rem 0;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 960px) {
+    .storyPictureWrapper {
+        position: static;
+        top: 0;
+        width: 100%;
+        height: 50%;
+        background-color: red;
+    }
+    .storyParagraphWrapper {
+        position: static;
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        background-color: blue;
+    }
+    .storyWrapper {
+        position: relative;
+        height: 100vh;
+        max-height: 600px;
+        margin: 2rem 0;
+    }
+}
