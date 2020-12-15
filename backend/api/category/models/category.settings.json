@@ -17,8 +17,11 @@
       "unique": true
     },
     "dishes": {
-      "via": "category",
-      "collection": "dish"
+      "collection": "dish",
+      "via": "category"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

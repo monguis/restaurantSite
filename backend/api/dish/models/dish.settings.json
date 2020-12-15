@@ -26,8 +26,8 @@
       "type": "string"
     },
     "category": {
-      "model": "category",
-      "via": "dishes"
+      "via": "dishes",
+      "model": "category"
     },
     "annotations": {
       "type": "string",
