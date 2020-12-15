@@ -13,4 +13,10 @@ a {
 
 * {
   box-sizing: border-box;
+ 
+}
+
+p{
+  text-align: center;
+  font-family: Architects Daughter;
 }
