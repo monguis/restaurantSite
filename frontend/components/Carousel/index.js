@@ -42,14 +42,14 @@ const Carousel = ({ slideResponse }) => {
                 className={styles.sliderButton}
                 id={styles.moveRightSliderButton}
                 onClick={moveRight}>
-                <i class="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-right"></i>
             </button>
 
             <button
                 className={styles.sliderButton}
                 id={styles.moveLeftSliderButton}
                 onClick={moveLeft}>
-                <i class="fas fa-chevron-left"></i>
+                <i className="fas fa-chevron-left"></i>
             </button>
 
             <div className={styles.carouselShadowFrame} >
