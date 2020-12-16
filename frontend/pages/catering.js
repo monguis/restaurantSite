@@ -61,7 +61,7 @@ const CateringPage = () => {
         evt.preventDefault();
         if (validatedForm) {
             sendNotificationEmail(formState).then(({ data }) => console.log(data));
-            sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
+            // sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
         }
     }
 

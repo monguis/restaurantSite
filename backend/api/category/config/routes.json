@@ -15,13 +15,6 @@
       "config": {
         "policies": []
       }
-    },{
-      "method": "POST",
-      "path": "/email/adminNotification",
-      "handler": "email.adminNotification",
-      "config": {
-        "policies": []
-      }
     },
     {
       "method": "GET",

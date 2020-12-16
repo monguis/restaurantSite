@@ -2,11 +2,11 @@ module.exports = ({ env }) => ({
     email: {
         provider: 'sendgrid',
         providerOptions: {
-            apiKey:"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",
+            apiKey:env("SENDGRID_API_KEY"),
         },
         settings: {
-            defaultFrom: 'restaurantstrapitest@gmail.com',
-            defaultReplyTo: 'restaurantstrapitest@gmail.com',
+            defaultFrom: env("SENDGRID_EMAIL"),
+            defaultReplyTo: env("SENDGRID_EMAIL"),
         },
     }
 })
