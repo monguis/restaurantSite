@@ -41,20 +41,24 @@ const MenuPage = ({ menu }) => {
 
 
     const renderMenuGrid = menu => <div id={styles.sectionMenuDisplay}>
-        {menu.map(category => category.dishes.length > 0 ?<div>
+        {menu.map(category => category.dishes.length > 0 ? <div className={styles.sectionMenuElementWrapper}>
             <h2 className={styles.sectionTitle}
                 key={`${category.title}key`}
                 id={`${category.title}tag`} >
                 {category.title}
             </h2>
+            {category.description ? <p
+            >
+                {category.description}
+            </p> : ""}
             <div className={styles.sectionMenuGrid}>
                 {category.dishes.map((dish, index) => renderMenuTile(dish, index))}
             </div>
-        </div> 
-        
-        :
-        ""
-        )}
+        </div>
+            :
+            ""
+        )}        <a href='https://www.freepik.com/vectors/background'>Background vector created by rawpixel.com - www.freepik.com</a>
+
     </div>
 
 

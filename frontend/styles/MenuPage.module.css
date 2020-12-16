@@ -1,15 +1,19 @@
 #menuContainer {
-    text-align:center;
+    text-align: center;
     position: relative;
     display: flex;
 }
 
 #sidebarElementList {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border: solid 2px whitesmoke;
     margin: 0 auto;
-    padding: 0;
+    padding: 1rem;
 }
 
 #sectionSidebarWrapper {
+    color: whitesmoke;
+    background: rgb(46, 42, 42);
     position: relative;
     width: 30%;
     max-width: 600px;
@@ -23,6 +27,7 @@
 }
 
 .sidebarElement {
+    border: solid 2px whitesmoke;
     width: 100%;
     text-align: center;
     list-style: none;
@@ -33,8 +38,15 @@
 }
 
 #sectionMenuDisplay {
+    background-image: url('../public/images/86282.jpg');
+    background-size: 100% 100%;
     padding: 3rem;
     width: 70%;
+}
+
+.sectionMenuElementWrapper {
+    padding: 1rem;
+    margin: 1rem 0;
 }
 
 #mobileMenuButtonWrapper {
@@ -44,20 +56,27 @@
 .sectionMenuGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 20px;
-    column-gap: 12%;
+    row-gap: 10px;
+    column-gap: 5%;
     grid-auto-rows: minmax(100px, auto);
     overflow: hidden;
     transition: 0.25s all ease;
 }
 
 .sectionMenuGridElement {
+    border: 25px solid #503309;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23503309' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%232c1b03'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
     position: relative;
+    margin: 1rem;
+    padding:1rem;
+    color: black;
+    text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
 }
 
 .menuItemTitle {
     font-size: 1.5rem;
     font-family: 'Architects Daughter', cursive;
+    margin:0;
 }
 
 .menuItemPrice {
@@ -65,8 +84,10 @@
 }
 
 .sectionTitle {
+    color: black;
+    text-shadow: -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
     text-align: center;
-    font-family: 'Architects Daughter', cursive;
+    font-family: 'Chango', cursive;
     font-weight: bold;
 }
 
@@ -82,7 +103,7 @@
     }
     .mobileMenuButton {
         position: relative;
-        width:5rem;
+        width: 5rem;
         top: 1rem;
         left: 1rem;
         margin: 0;
@@ -100,12 +121,11 @@
         height: 100%;
         position: absolute;
         top: 0;
-        background: blue;
+        background: whitesmoke;
         left: -100%;
         transition: 0.45s all ease;
     }
     #sectionSidebarWrapper.active {
-        background: red;
         left: 0;
     }
     #sectionSidebar {
