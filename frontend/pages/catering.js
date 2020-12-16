@@ -39,21 +39,23 @@ const CateringPage = () => {
 
 
     return <Layout>
-        <ContainerComponent>
-            <h3>Yes, We Cater!</h3>
-            <div className={styles.cateringLegendWrapper}>
-                <p className={styles.cateringLegend}>
-                    We are honored to be part of your special moments, and We know you want it to be perfect. Tell us about it, we will do our best to make that moment even more memorable.
+        <ContainerComponent >
+            <div className={styles.cateringPageWrapper}>
+                <h3 className={styles.pageTitle}>Yes, We Cater!</h3>
+                <div className={styles.cateringLegendWrapper}>
+                    <p className={styles.cateringLegend}>
+                        We are honored to be part of your special moments, and We know you want it to be perfect. Tell us about it, we will do our best to make that moment even more memorable.
                 </p>
+                </div>
+                <form id={styles.cateringForm}>
+                    {renderTextInput("First Name", "fName", fName)}
+                    {renderTextInput("Last Name", "lName", lName)}
+                    {renderTextInput("Phone Number", "phone", phone)}
+                    {renderTextInput("Email", "email", email)}
+                    {renderTextArea("What's your question?", "inquiry", inquiry)}
+                    <button className={styles.submitButton} type="submit">Submit</button>
+                </form>
             </div>
-            <form id={styles.cateringForm}>
-                {renderTextInput("First Name", "fName", fName)}
-                {renderTextInput("Last Name", "lName", lName)}
-                {renderTextInput("Phone Number", "phone", phone)}
-                {renderTextInput("Email", "email", email)}
-                {renderTextArea("What's your question?", "inquiry", inquiry)}
-                <button type="submit">Submit</button>
-            </form>
         </ContainerComponent>
     </Layout>
 }
