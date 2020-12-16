@@ -83,6 +83,12 @@
     background:#503309;
     color:whitesmoke;
 }
+
+.submitButton:disabled{
+    color:gray;
+    background:transparent;
+}
+
 .textAreaDiv label {
     font-size: large;
     cursor: pointer;

@@ -14,56 +14,85 @@ const CateringPage = () => {
         inquiry: ""
     })
 
-    const validateInput = (value, type) => {
+    const [validatedForm, setValidatedForm] = useState(false);
+
+    const changeBorderColor = (condition, event) => {
+        const targetedElement = event.target;
+        targetedElement.style.borderColor = condition ? "green" : "red";
+    }
+
+    const validateInput = (type) => {
+        const value = formState[type];
         const REGEX = {
             fName: /^([^0-9]*)$/,
             lName: /^([^0-9]*)$/,
             email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             phone: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
-            inquiry: ""
+            inquiry: /(?!^$)([^\s])/
         }
-
-        const checkedStringArray = value.trim().match(REGEX[type]);
+        const checkedStringArray = value.match(REGEX[type]);
 
         if (checkedStringArray === null) return false;
 
         return !!checkedStringArray[0];
     }
 
-    const { fName, lName, email, phone, inquiry } = formState;
+    const handleValidateForm = () => {
+        setValidatedForm(() => {
+            for (const key in formState) {
+                if (!validateInput(key)) {
+                    return false
+                }
+            }
+            return true
+        }
+        )
+    }
 
     const updateFormValue = (event) => {
         const { name, value } = event.target;
         setForm(formState => ({ ...formState, [name]: value }));
+        handleValidateForm();
     }
+
+
 
     const handleSubmitForm = async evt => {
         evt.preventDefault();
-        sendNotificationEmail(formState).then(({ data }) => console.log(data));
-        sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
+        if (validatedForm) {
+            sendNotificationEmail(formState).then(({ data }) => console.log(data));
+            sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
+        }
     }
 
-    const renderTextInput = (labelText, type, value) =>
-        <div className={styles.inputDiv}>
-            <label for={`${type}Field`}>{labelText}</label>
+    const renderTextInput = (labelText, type) => {
+        const value = formState[type];
+        return <div className={styles.inputDiv}>
+            <label htmlFor={`${type}Field`}>{labelText}</label>
             <input id={`${type}Field`}
                 type="text"
                 name={type}
                 value={value}
                 onChange={updateFormValue}
-                onBlur={() => { validateInput(value, type) }} />
+                onBlur={(evt) => {
+                    changeBorderColor(validateInput(type), evt)
+                }} />
         </div>
+    }
 
-
-    const renderTextArea = (labelText, type, value) => <div className={styles.textAreaDiv}>
-
-        <label for={`${type}Field`}>{labelText}</label>
-        <textarea id={`${type}Field`} type="text" placeholder="What would you like to know?" name={type}
-            value={value}
-            onChange={(e) => { updateFormValue(e) }} />
-    </div>
-
-
+    const renderTextArea = (labelText, type) => {
+        const value = formState[type];
+        return <div className={styles.textAreaDiv}>
+            <label htmlFor={`${type}Field`}>{labelText}</label>
+            <textarea id={`${type}Field`} type="text" placeholder="What would you like to know?" name={type}
+                value={value}
+                onChange={(e) => { updateFormValue(e) }}
+                onBlur={(evt) => {
+                    changeBorderColor(validateInput(type), evt)
+                    handleValidateForm();
+                }} />
+        </div>
+    }
 
 
     return <Layout>
@@ -76,12 +105,12 @@ const CateringPage = () => {
                     </p>
                 </div>
                 <form id={styles.cateringForm}>
-                    {renderTextInput("First Name", "fName", fName)}
-                    {renderTextInput("Last Name", "lName", lName)}
-                    {renderTextInput("Phone Number", "phone", phone)}
-                    {renderTextInput("Email", "email", email)}
-                    {renderTextArea("What's your question?", "inquiry", inquiry)}
-                    <button className={styles.submitButton} type="submit" onClick={handleSubmitForm}>Submit</button>
+                    {renderTextInput("First Name", "fName")}
+                    {renderTextInput("Last Name", "lName")}
+                    {renderTextInput("Phone Number", "phone")}
+                    {renderTextInput("Email", "email")}
+                    {renderTextArea("What's your question?", "inquiry")}
+                    <button disabled={!validatedForm} className={styles.submitButton} type="submit" onClick={handleSubmitForm}>Submit</button>
                 </form>
             </div>
         </ContainerComponent>
