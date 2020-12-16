@@ -5,10 +5,4 @@
  * to customize this controller
  */
 
-module.exports = {
-    async find(ctx) {
-        const categories = await strapi.services.category.find(ctx.query);
-
-        return categories.map(({title, dishes}) => ({title, dishes}));
-    }
-};
+module.exports = {};
