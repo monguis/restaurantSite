@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/CateringPage.module.css";
 import Layout from "../components/Layout";
 import ContainerComponent from "../components/ContainerComponent";
+import { sendNotificationEmail, sendAdminNotificationEmail } from "../util/API"
 
 const CateringPage = () => {
 
@@ -13,17 +14,44 @@ const CateringPage = () => {
         inquiry: ""
     })
 
+    const validateInput = (value, type) => {
+        const REGEX = {
+            fName: /^([^0-9]*)$/,
+            lName: /^([^0-9]*)$/,
+            email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            phone: /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/,
+            inquiry: ""
+        }
+
+        const checkedStringArray = value.trim().match(REGEX[type]);
+
+        if (checkedStringArray === null) return false;
+
+        return !!checkedStringArray[0];
+    }
+
+    const { fName, lName, email, phone, inquiry } = formState;
+
     const updateFormValue = (event) => {
         const { name, value } = event.target;
         setForm(formState => ({ ...formState, [name]: value }));
     }
 
-    const { fName, lName, email, phone, inquiry } = formState;
+    const handleSubmitForm = async evt => {
+        evt.preventDefault();
+        sendNotificationEmail(formState).then(({ data }) => console.log(data));
+        sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
+    }
 
     const renderTextInput = (labelText, type, value) =>
         <div className={styles.inputDiv}>
             <label for={`${type}Field`}>{labelText}</label>
-            <input id={`${type}Field`} type="text" name={type} value={value} onChange={(e) => { updateFormValue(e) }} />
+            <input id={`${type}Field`}
+                type="text"
+                name={type}
+                value={value}
+                onChange={updateFormValue}
+                onBlur={() => { validateInput(value, type) }} />
         </div>
 
 
@@ -45,7 +73,7 @@ const CateringPage = () => {
                 <div className={styles.cateringLegendWrapper}>
                     <p className={styles.cateringLegend}>
                         We are honored to be part of your special moments, and We know you want it to be perfect. Tell us about it, we will do our best to make that moment even more memorable.
-                </p>
+                    </p>
                 </div>
                 <form id={styles.cateringForm}>
                     {renderTextInput("First Name", "fName", fName)}
@@ -53,7 +81,7 @@ const CateringPage = () => {
                     {renderTextInput("Phone Number", "phone", phone)}
                     {renderTextInput("Email", "email", email)}
                     {renderTextArea("What's your question?", "inquiry", inquiry)}
-                    <button className={styles.submitButton} type="submit">Submit</button>
+                    <button className={styles.submitButton} type="submit" onClick={handleSubmitForm}>Submit</button>
                 </form>
             </div>
         </ContainerComponent>

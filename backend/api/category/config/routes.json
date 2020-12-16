@@ -9,6 +9,21 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/email/userNotification",
+      "handler": "email.userNotification",
+      "config": {
+        "policies": []
+      }
+    },{
+      "method": "POST",
+      "path": "/email/adminNotification",
+      "handler": "email.adminNotification",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/categories/count",
       "handler": "category.count",
