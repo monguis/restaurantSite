@@ -9,6 +9,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/email/userNotification",
+      "handler": "email.userNotification",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/categories/count",
       "handler": "category.count",

@@ -22,7 +22,7 @@
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
-    background-color: tomato;
+    background-color: whitesmoke;
     width: 10rem;
     height: 3.2rem;
     margin: 0;
@@ -45,10 +45,11 @@
 }
 
 .navBarLink {
+    cursor: pointer;
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    font-family:Chango
+    font-family: Chango
 }
 
 .navBarLink:hover {

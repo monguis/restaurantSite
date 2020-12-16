@@ -14,10 +14,6 @@ export const linkObjectsArray = [
     {
         name: "About",
         href: "/about"
-    },
-    {
-        name: "Locations",
-        href: "/locations"
     }
 ]
 
