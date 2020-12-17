@@ -1,0 +1,30 @@
+.footerMainElement {
+    background: black
+}
+
+.infoContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 1rem 0;
+    color: whitesmoke
+}
+
+.infoContainer img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media screen and (max-width: 960px) {
+    .infoContainer {
+        display: block;
+        align-items: center;
+    }
+
+    .infoContainer img {
+        width: 100%;
+        position: static;;
+    }
+}

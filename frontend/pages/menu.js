@@ -27,7 +27,7 @@ const MenuPage = ({ menu }) => {
         className={mobileMenuState ? styles.active : ""}>
         <div id={styles.sectionSidebar}>
             <h1>
-                Menu
+                Las Sombrillas
             </h1>
             <ul id={styles.sidebarElementList}>
                 {menu.map((section, arrayIndex) => section.dishes.length > 0 ?
