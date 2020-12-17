@@ -20,7 +20,13 @@
     width: 100%;
 }
 
+.hotlinkImageContainer img{
+    border-radius: 10px;
+}
+
 .hotlinkDescription {
+    font-family:Architects Daughter;
+    text-align: center;
     position: absolute;
     bottom: 0;
     left: 50%;

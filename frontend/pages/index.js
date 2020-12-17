@@ -9,14 +9,11 @@ const Index = ({ carousel, hotlinks }) =>
         <Carousel slideResponse={carousel} />
 
         <ContainerComponent>
-            
-                <HotlinkContainer hotlinkResponse={hotlinks} />
-            <h2>
+            <h1>
+                LAS SOMBRILLAS
+                </h1>
+            <HotlinkContainer hotlinkResponse={hotlinks} />
 
-            </h2>
-            <h2>
-                map
-        </h2>
         </ContainerComponent>
     </Layout>
 
@@ -30,7 +27,7 @@ export async function getStaticProps(context) {
     const resultArray = [];
 
     await Promise.all(promiseArray).then(responses => responses.map(res => resultArray.push(res.data)))
-    
+
     const [carousel, hotlinks] = resultArray;
 
     return {

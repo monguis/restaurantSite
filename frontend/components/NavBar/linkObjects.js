@@ -11,9 +11,5 @@ export const linkObjectsArray = [
         name: "Menu",
         href: "/menu"
     },
-    {
-        name: "About",
-        href: "/about"
-    }
 ]
 
