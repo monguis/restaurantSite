@@ -7,6 +7,4 @@ export const requestCarousel = () => axios.get(apiUrl + "/slides");
 
 export const requestHotlinks = () => axios.get(apiUrl +"/hotlinks");
 
-export const sendNotificationEmail = body => axios.post(apiUrl+"/email/userNotification",body);
-
-// export const sendAdminNotificationEmail = body => axios.post(apiUrl+"/email/adminNotification",body);
+export const sendNotificationEmail = body => axios.post(apiUrl + "/email/userNotification",body);

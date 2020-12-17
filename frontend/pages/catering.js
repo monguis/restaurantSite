@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styles from "../styles/CateringPage.module.css";
 import Layout from "../components/Layout";
 import ContainerComponent from "../components/ContainerComponent";
-import { sendNotificationEmail, sendAdminNotificationEmail } from "../util/API"
+import { sendNotificationEmail } from "../util/API"
+import { useRouter } from "next/router"
 
 const CateringPage = () => {
 
@@ -13,7 +14,7 @@ const CateringPage = () => {
         phone: "",
         inquiry: ""
     })
-
+    const router = useRouter()
     const [validatedForm, setValidatedForm] = useState(false);
 
     const changeBorderColor = (condition, event) => {
@@ -60,8 +61,8 @@ const CateringPage = () => {
     const handleSubmitForm = async evt => {
         evt.preventDefault();
         if (validatedForm) {
-            sendNotificationEmail(formState).then(({ data }) => console.log(data));
-            // sendAdminNotificationEmail(formState).then(({ data }) => console.log(data));
+            await sendNotificationEmail(formState);
+            router.push("/")
         }
     }
 
